@@ -1304,7 +1304,7 @@ var Fullpage = function (_React$Component) {
           props = comp.props;
       var infinite = props.infinite;
 
-      var eligible = isEligible(next, props, _fp.state);
+      var eligible = isEligible(next, props, _fp.state, name);
 
       if (!eligible) {
         return;
@@ -1343,7 +1343,7 @@ var Fullpage = function (_React$Component) {
           window = state.window;
 
 
-      var eligible = isEligible(idx, props, state);
+      var eligible = isEligible(idx, props, state, name);
 
       if (!eligible) {
         return;
@@ -1379,9 +1379,9 @@ function firstToLast(nodes) {
   swap(nodes, null, nodes.length - 1);
 }
 
-function isEligible(idx, props, state) {
+function isEligible(idx, props, state, name) {
   var slides = props.slides;
-  var activeSlide = state.activeSlide;
+  var activeSlide = state[name].activeSlide;
 
 
   if (state.scrollPending) {
